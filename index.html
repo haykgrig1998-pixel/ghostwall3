@@ -1,0 +1,412 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Restaurants | Gourmet Dining Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href = "{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo"><i class="fas fa-utensils"></i>Mini Restaurants</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#offers">Special Offers</a></li>
+                <li><a href="#chefs">Our Chefs</a></li>
+                <li><a href="#reservation">Reservation</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    {% for h in h_list %}
+     <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1><!--Experience Culinary Excellence-->{{ h.exp}}</h1>
+                <p><!--At Mini Restaurants, we blend traditional recipes with modern culinary techniques to create unforgettable dining experiences. Our commitment to quality ingredients and exceptional service makes every meal special.-->{{ h.at}}</p>
+                <div class="hero-btns">
+                    <a href="#menu" class="btn">View Our Menu</a>
+                    <a href="#reservation" class="btn btn-secondary">Book a Table</a>
+                </div>
+            </div>
+        </div>
+     </section>
+    {% endfor %}
+
+{% for s in s_list %}
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2><!--Our Story-->{{ s.our1}}</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="{{ s.img.url }}" alt="Restaurant interior">
+                </div>
+                <div class="about-text">
+                    <h3><!--Welcome to Mini Restaurants-->{{ s.wel}}</h3>
+                    <p><!--Founded in 2008 by Chef Marco Rossi, Mini Restaurants began as a small family-owned bistro with just 12 tables. Today, we have grown into a renowned culinary destination with three locations across the city, each maintaining our original commitment to excellence.-->{{ s.found}}</p>
+                    <p><!--Our philosophy is simple: source the finest local ingredients, prepare them with skill and passion, and serve them in a warm, welcoming atmosphere. We believe that great food brings people together and creates lasting memories.-->{{ s.our2}}</p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div>
+                                <h4><!--Fresh Ingredients-->{{ s.fresh}}</h4>
+                                <p><!--Locally sourced, organic produce-->{{ s.local}}</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div>
+                                <h4><!--Award Winning-->{{ s.award}}</h4>
+                                <p><!--5-star rated since 2015-->{{ s.star}}</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-cheese"></i>
+                            </div>
+                            <div>
+                                <h4><!--Seasonal Menu-->{{ s.season}}</h4>
+                                <p><!--Changing with the seasons-->{{ s.change}}</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-wine-glass-alt"></i>
+                            </div>
+                            <div>
+                                <h4><!--Fine Wines-->{{ s.fine}}</h4>
+                                <p><!--Curated wine selection-->{{ s.curate}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endfor %}
+
+{% for m in m_list %}
+  <section class="menu" id="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2>{{ m.our3}}</h2>
+            </div>
+            <div class="menu-categories" id="menuCategories">
+                <!-- Categories will be added by JavaScript -->
+            </div>
+            <div class="menu-items" id="menuItems">
+                <!-- Menu items will be added by JavaScript -->
+            </div>
+        </div>
+    </section>
+{% endfor %}
+{% for s1 in s1_list %}
+    <!-- Special Offers -->
+    <section class="offers" id="offers">
+        <div class="container">
+            <div class="section-title">
+                <h2><!--Special Offers-->{{ s1.special1}}</h2>
+                <p style="color: rgba(255, 255, 255, 0.9);"><!--Limited time promotions and dining packages-->{{ s1.limited}}</p>
+            </div>
+            <div class="offers-container">
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
+                    <h3><!--Weekend Brunch-->{{ s1.weekend}}</h3>
+                    <p><!--Enjoy our famous weekend brunch buffet with bottomless mimosas every Saturday and Sunday from 10am to 2pm.-->{{ s1.enjoy}}</p>
+                    <div class="offer-price">
+                        <span>$45</span> $35
+                    </div>
+                    <a href="#reservation" class="btn">Book Now</a>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3><!--Romantic Dinner-->{{ s1.romantic}}</h3>
+                    <p><!--A special evening for two with a 5-course tasting menu, wine pairing, and chocolate fondue dessert.-->{{ s1.a1}}</p>
+                    <div class="offer-price">
+                        <span>$120</span> $99
+                    </div>
+                    <a href="#reservation" class="btn">Book Now</a>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3><!--Family Feast-->{{ s1.family1}}</h3>
+                    <p><!--Perfect for groups of 4-6 people. Includes appetizers, main courses, desserts, and non-alcoholic beverages.-->{{ s1.perfect1}}</p>
+                    <div class="offer-price">
+                        <span>$180</span> $150
+                    </div>
+                    <a href="#reservation" class="btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endfor %}
+
+{% for sh in sh_list %}
+    <section id="chefs">
+        <div class="container">
+            <div class="section-title">
+                <h2><!--Meet Our Chefs-->{{ sh.meet}}</h2>
+                <p><!--The talented culinary artists behind our exceptional dishes-->{{ sh.the1}}</p>
+            </div>
+            <div class="chefs-grid">
+                <div class="chef-card">
+                    <div class="chef-img">
+                        <img src="{{ sh.img4.url }}" alt="Chef Marco Rossi">
+                    </div>
+                    <div class="chef-info">
+                        <h3><!--Marco Rossi-->{{ sh.marco}}</h3>
+                        <div class="chef-role">Head Chef & Owner</div>
+                        <p><!--With over 25 years of experience, Chef Marco brings traditional Italian techniques with modern flair.-->{{ sh.with1}}</p>
+                        <div class="chef-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="chef-card">
+                    <div class="chef-img">
+                        <img src="{{ sh.img5.url}}" alt="Chef Sofia Chen">
+                    </div>
+                    <div class="chef-info">
+                        <h3><!--Sofia Chen-->{{ sh.sofia}}</h3>
+                        <div class="chef-role">Pastry Chef</div>
+                        <p><!--Graduate of Le Cordon Bleu, Chef Sofia creates exquisite desserts that are almost too beautiful to eat.-->{{ sh.graduate1}}</p>
+                        <div class="chef-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="chef-card">
+                    <div class="chef-img">
+                        <img src="{{ sh.img6.url }}" alt="Chef James Wilson">
+                    </div>
+                    <div class="chef-info">
+                        <h3><!--James Wilson--->{{ sh.james}}</h3>
+                        <div class="chef-role">Sous Chef</div>
+                        <p><!--Specializing in seafood and grill, Chef James brings innovative techniques from his time in Michelin-starred kitchens.-->{{ sh.special1}}</p>
+                        <div class="chef-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endfor %}
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Guests Say</h2>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonials-container" id="testimonialsContainer">
+                    <!-- Testimonial cards will be added by JavaScript -->
+                </div>
+                <div class="slider-controls" id="testimonialControls">
+                    <!-- Slider buttons will be added by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% for r in r_list %}
+    <section class="reservation" id="reservation">
+        <div class="container">
+            <div class="section-title">
+                <h2><!--Make a Reservation-->{{ r.make}}</h2>
+                <p><!--Book your table for an unforgettable dining experience-->{{ r.book}}</p>
+            </div>
+            <div class="reservation-content">
+                <div class="reservation-info">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3><!--Our Locations-->{{ r.our4}}</h3>
+                            <p><!--123 Gourmet Street, Downtown<br>456 Culinary Avenue, Uptown<br>789 Flavor Boulevard, Waterfront-->{{ r.gourmet}}</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3><!--Opening Hours-->{{ r.opening}}</h3>
+                            <p><!--Monday - Thursday: 11am - 10pm<br>Friday - Saturday: 11am - 11pm<br>Sunday: 10am - 9pm-->{{ r.mond}}</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h3><!--Contact Info-->{{ r.contact}}</h3>
+                            <p><!--Reservations: (555) 123-4567<br>General Inquiries: info@minirestaurants.com<br>Events: events@minirestaurants.com-->{{ r.reserve}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reservation-form">
+                   <form method="POST" action="{% url 'reserve' %}" id="reservationForm">
+                        {% csrf_token %}
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" class="form-control" placeholder="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" class="form-control" placeholder="number" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="guests">Number of Guests *</label>
+                                <select id="guests" name="guests" class="form-control" required>
+                                    <option value="" disabled selected>Select number</option>
+                                    <option value="1">1 Person</option>
+                                    <option value="2">2 People</option>
+                                    <option value="3">3 People</option>
+                                    <option value="4">4 People</option>
+                                    <option value="5">5 People</option>
+                                    <option value="6">6 People</option>
+                                    <option value="7">7+ People</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Reservation Date *</label>
+                                <input type="date" id="date" name="date" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Reservation Time *</label>
+                                <select id="time" name="time" class="form-control" required>
+                                    <option value="" disabled selected>Select time</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="13:00">1:00 PM</option>
+                                    <option value="14:00">2:00 PM</option>
+                                    <option value="18:00">6:00 PM</option>
+                                    <option value="19:00">7:00 PM</option>
+                                    <option value="20:00">8:00 PM</option>
+                                    <option value="21:00">9:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="location">Preferred Location</label>
+                            <select id="location" name="location" class="form-control">
+                                <option value="" selected>Any location</option>
+                                <option value="downtown">Downtown (123 Gourmet Street)</option>
+                                <option value="uptown">Uptown (456 Culinary Avenue)</option>
+                                <option value="waterfront">Waterfront (789 Flavor Boulevard)</option>
+                                <option value="Vakhtang Ananyan 20/1">Vakhtang Ananyan 20/1, ARM</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" class="form-control" rows="3" placeholder="message"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Book Table Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endfor %}
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo"><i class="fas fa-utensils"></i>Mini Restaurants</div>
+                    <p>An award-winning culinary destination offering exceptional dining experiences with locally sourced ingredients and expert culinary craftsmanship since 2008.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#menu">Our Menu</a></li>
+                        <li><a href="#chefs">Our Chefs</a></li>
+                        <li><a href="#offers">Special Offers</a></li>
+                        <li><a href="#reservation">Reservations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <div>
+                            <p><strong>Main Location:</strong><br>123 Gourmet Street, Downtown</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt contact-icon"></i>
+                        <div>
+                            <p><strong>Phone:</strong><br>(555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <div>
+                            <p><strong>Email:</strong><br>info@minirestaurants.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Mini Restaurants. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--primary-light);"></i> for food lovers everywhere.</p>
+            </div>
+        </div>
+    </footer>
+    <script src = "{% static 'js/scripts.js' %}"></script>
+</body>
+</html>
